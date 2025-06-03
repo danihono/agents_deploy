@@ -1,3 +1,9 @@
 streamlit
 openai
 markdown
+pandas
+python-dotenv
+uuid
+crewai
+langchain
+matplotlib
