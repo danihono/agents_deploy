@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
-from crewai.tools import FileWriterTool, ScrapeWebsiteTool
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.style import WD_STYLE_TYPE
@@ -21,9 +20,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Carregar variáveis de ambiente
 load_dotenv()
 
-# Ferramentas
-scraper = ScrapeWebsiteTool()
-file_writer = FileWriterTool()
 
 # Configuração do relatório
 CONFIG_RELATORIO = {
@@ -177,7 +173,6 @@ pesquisador = Agent(
     role="Pesquisador de Mercado",
     goal="Coletar dados completos sobre {setor} em {regiao} para {empresa}, cobrindo oferta/demanda, competidores, custos, forças, fortalezas, indicadores econômicos, ESG e riscos.",
     backstory="Analista experiente em sourcing estratégico, especializado em dados de mercado.",
-    tools=[scraper],
     verbose=True
 )
 
