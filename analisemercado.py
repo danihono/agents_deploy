@@ -11,6 +11,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
+from crewai_tools import SerperDevTool, FileWriterTool, ScrapeWebsiteTool
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.style import WD_STYLE_TYPE
