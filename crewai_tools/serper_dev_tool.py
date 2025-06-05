@@ -5,7 +5,8 @@ import os
 from typing import Any, List, Optional, Type
 
 import requests
-from crewai_tools.env_var import BaseTool, EnvVar
+from crewai_tools.env_var import EnvVar
+from crewai_tools.base_tool import BaseTool
 from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
