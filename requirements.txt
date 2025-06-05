@@ -12,4 +12,3 @@ pdfplumber==0.11.6
 transformers==4.35.2
 crewai==0.30.11
 chromadb==0.5.23
-crewai-tools @ git+https://github.com/CrewAI/tools.git

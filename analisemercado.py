@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+
+    #!/usr/bin/env python
 # coding: utf-8
 
 import os
@@ -10,7 +11,9 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
-from crewai_tools.tools import SerperDevTool, ScrapeWebsiteTool
+from crewai_tools.serper_dev_tool import SerperDevTool
+from crewai_tools.scrape_website_tool import ScrapeWebsiteTool
+from crewai_tools.file_writer_tool import FileWriterTool
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.style import WD_STYLE_TYPE
@@ -24,7 +27,7 @@ load_dotenv()
 # Ferramentas
 serper = SerperDevTool()
 scraper = ScrapeWebsiteTool()
-
+file_writer = FileWriterTool()
 
 # Configuração do relatório
 CONFIG_RELATORIO = {
@@ -273,7 +276,6 @@ def gerar_relatorio(setor, regiao, empresa):
 
         arquivo_saida = f"relatorio_{setor.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d')}.docx"
         exportar_para_word(str(resultado), setor, arquivo_saida)
-
         return arquivo_saida
     except Exception as e:
         logging.error(f"Erro ao gerar relatório: {e}")
@@ -283,3 +285,4 @@ def gerar_relatorio(setor, regiao, empresa):
 if __name__ == "__main__":
     resultado = gerar_relatorio("Serviços de Computação em Nuvem", "Brasil", "Grande Empresa")
     print(resultado.raw)
+
