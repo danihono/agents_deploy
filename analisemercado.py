@@ -274,7 +274,7 @@ def gerar_relatorio(setor, regiao, empresa):
         arquivo_saida = f"relatorio_{setor.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d')}.docx"
         exportar_para_word(str(resultado), setor, arquivo_saida)
 
-        return resultado
+        return arquivo_saida
     except Exception as e:
         logging.error(f"Erro ao gerar relatório: {e}")
         raise

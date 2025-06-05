@@ -22,7 +22,16 @@ if st.button("Executar Análise de Mercado"):
 
         with st.spinner(f"Gerando relatório para {setor} ({empresa_final}) na região {regiao_final}..."):
             try:
-                gerar_relatorio(setor, empresa_final, regiao_final)
+                arquivo_word = gerar_relatorio(setor, empresa_final, regiao_final)
                 st.success("Relatório gerado com sucesso!")
+
+                with open(arquivo_word, "rb") as file:
+                    st.download_button(
+                        label="📥 Baixar Relatório Word",
+                        data=file,
+                        file_name=arquivo_word,
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    )
+
             except Exception as e:
                 st.error(f"Erro durante a geração: {e}")
