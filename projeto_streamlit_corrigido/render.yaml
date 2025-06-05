@@ -4,5 +4,5 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run 1_HOME🏠.py
+    startCommand: streamlit run app.py
     autoDeploy: true
