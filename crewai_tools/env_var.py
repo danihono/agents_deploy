@@ -1,7 +1,6 @@
+class EnvVar:
+    def _init_(self, name: str, description: str = "", required: bool = False):
+        self.name = name
+        self.description = description
+        self.required = required
 
-from pydantic import BaseModel
-
-class EnvVar(BaseModel):
-    name: str
-    description: str = ""
-    required: bool = False
